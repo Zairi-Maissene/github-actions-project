@@ -59,7 +59,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: scottyfullstack/falcon-look-app:latest
+        tags: zairi-maissene/github-actions-project:latest
 
     - name: Create issue on failure
       if: ${{ failure() }}
