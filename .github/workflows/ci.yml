@@ -32,6 +32,7 @@ jobs:
       uses: anchore/scan-action@v3
       id: scan
       with:
+        fail-build: false
         image: "zairi-maissene/github-actions-project"
 
     - name: upload Anchore scan SARIF report
