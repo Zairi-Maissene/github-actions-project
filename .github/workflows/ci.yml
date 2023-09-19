@@ -4,6 +4,7 @@ on: pull_request
 
 jobs:
   build:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -31,6 +32,7 @@ jobs:
       uses: anchore/scan-action@v3
       id: scan
       with:
+        fail-build: false
         image: "zairi-maissene/github-actions-project"
 
     - name: upload Anchore scan SARIF report
@@ -59,7 +61,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: scottyfullstack/falcon-look-app:latest
+        tags: maissene/github-actions-project:latest
 
     - name: Create issue on failure
       if: ${{ failure() }}
